@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ description }}">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar" aria-label="Site navigation">
+        <a class="brand" href="index.html">Notebook Pages</a>
+        <nav class="page-nav" aria-label="Notes">
+{{ nav }}
+        </nav>
+      </aside>
+
+      <main class="content">
+{{ content }}
+      </main>
+
+      <aside class="toc-panel" aria-label="Table of contents">
+        <div class="toc-title">On this page</div>
+{{ toc }}
+      </aside>
+    </div>
+  </body>
+</html>

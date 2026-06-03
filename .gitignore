@@ -12,7 +12,11 @@ Thumbs.db
 __pycache__/
 .pycache/
 *.py[cod]
+*.egg-info/
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.python-version
 .venv/
 venv/
 env/

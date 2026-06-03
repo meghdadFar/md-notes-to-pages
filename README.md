@@ -17,28 +17,24 @@ To reorder pages, rename the files. Numeric prefixes (`01-`, `02-`, ...) work we
 
 ## Requirements
 
-- **Python 3.9 or newer** — runs the build script. (CI uses 3.12.)
 - **Git** — for version control and pushing to GitHub.
-- **A GitHub account** — only needed to publish. Local builds work without one.
-- Python dependencies are pinned in [`requirements.txt`](requirements.txt) (`markdown`, `Pygments`).
+- **A GitHub account** — to host the repo and publish the site.
+- **Python 3.9 or newer** — only for the optional [local preview](#preview-locally-optional); GitHub builds the published site for you. Dependencies are pinned in [`requirements.txt`](requirements.txt) (`markdown`, `Pygments`).
 
-## Quick Start
+## Get Started
 
-Build and preview locally before publishing anything.
+1. **Make it yours.** On GitHub, click **Use this template → Create a new repository** (or fork it), then clone your copy:
 
-```bash
-# 1. Create an isolated environment and install dependencies
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
+   ```bash
+   git clone git@github.com:<your-username>/<your-repo>.git
+   cd <your-repo>
+   ```
 
-# 2. Render notebooks/*.md into _site/
-.venv/bin/python scripts/build_site.py
+   You can also just download the folder and run `git init` later.
 
-# 3. Serve the result and open http://localhost:8000
-python3 -m http.server 8000 -d _site
-```
+2. **Edit the notes.** Open `notebooks/` and replace the sample files with your own. Each `.md` file is one page — see [Add a Note](#add-a-note) for the format.
 
-Rerun step 2 whenever you change a note. `_site/` is generated and Git-ignored, so you never commit it.
+3. **Publish.** Push to GitHub and turn on Pages — see [Publish to GitHub Pages](#publish-to-github-pages).
 
 ## Add a Note
 
@@ -60,10 +56,18 @@ Publishing is a one-time setup. After it's wired up, every push to `main` redepl
 
 ### 1. Push the repo to GitHub
 
-Create a new repository on GitHub (empty, no README), then from this folder:
+If you created your repo from the template (see [Get Started](#get-started)), the remote is already set — just commit and push:
 
 ```bash
-git init                 # skip if the repo is already initialized
+git add .
+git commit -m "My notes"
+git push
+```
+
+Starting from a plain folder instead? Initialize and connect it to a new GitHub repo first:
+
+```bash
+git init
 git add .
 git commit -m "Initial notebooks"
 git branch -M main
@@ -119,8 +123,30 @@ Then prompt it normally — e.g. *"Add a notebook summarizing X"* or *"Tighten t
 
 **Prefer pull requests?** Connect the GitHub repo through the tool's GitHub integration (the Claude or ChatGPT GitHub app) and have the agent open PRs against `main` instead of editing your local files. Merging a PR runs the same deploy workflow.
 
+## Preview Locally (Optional)
+
+You don't need to build locally — pushing to `main` builds and deploys the site on GitHub. But if you want to check your notes before publishing, render and serve them on your machine:
+
+```bash
+# 1. Create an isolated environment and install dependencies
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+
+# 2. Render notebooks/*.md into _site/
+.venv/bin/python scripts/build_site.py
+
+# 3. Serve the result and open http://localhost:8000
+python3 -m http.server 8000 -d _site
+```
+
+Rerun step 2 whenever you change a note. `_site/` is generated and Git-ignored, so you never commit it.
+
 ## Customize
 
 - Page shell — [`site/templates/page.html`](site/templates/page.html)
 - Visual design — [`site/assets/styles.css`](site/assets/styles.css)
 - Discovery and rendering — [`scripts/build_site.py`](scripts/build_site.py)
+
+## License
+
+[MIT](LICENSE) — use it, fork it, make it yours.

@@ -1,6 +1,6 @@
 # md-notes-to-pages
 
-A small template for publishing a folder of Markdown notebooks as a clean GitHub Pages site.
+A small template for publishing a folder of Markdown notebooks as a GitHub Pages site.
 
 Write notes in `notebooks/`. Run one script. Get a static HTML site in `_site/`.
 
@@ -21,9 +21,9 @@ This repo keeps Markdown as the source of truth and treats the website as a gene
 ```text
 .
 ├── notebooks/
-│   ├── 01-field-guide.md
-│   ├── 02-lab-notes.md
-│   └── 03-reading-room.md
+│   ├── 01-why-markdown.md
+│   ├── 02-your-first-note.md
+│   └── 03-another-example.md
 ├── scripts/
 │   └── build_site.py
 ├── site/
@@ -43,7 +43,7 @@ This repo keeps Markdown as the source of truth and treats the website as a gene
 `scripts/build_site.py` automatically finds every `*.md` file in `notebooks/`, sorted by filename.
 
 - The first notebook becomes `index.html`.
-- Every other notebook becomes a page named from its filename, such as `02-lab-notes.md` -> `02-lab-notes.html`.
+- Every other notebook becomes a page named from its filename, such as `02-your-first-note.md` -> `02-your-first-note.html`.
 - The first `# Heading` in each file becomes the page title and sidebar label.
 - The first non-heading line becomes the page description.
 - Second-level headings become the table of contents.

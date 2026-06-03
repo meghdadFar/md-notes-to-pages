@@ -85,7 +85,7 @@ def render_markdown(markdown_text: str) -> tuple[str, str]:
             "extra",
             "sane_lists",
             "codehilite",
-            TocExtension(permalink="", toc_depth="2-2"),
+            TocExtension(permalink="", toc_depth="2-3"),
         ],
         extension_configs={
             "codehilite": {

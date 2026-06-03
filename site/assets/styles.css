@@ -255,7 +255,14 @@ blockquote {
 }
 
 .toc-panel ul ul {
-  display: none;
+  margin: 2px 0 7px 12px;
+  padding-left: 10px;
+  border-left: 1px solid var(--rule);
+}
+
+.toc-panel ul ul a {
+  padding: 3px 0;
+  font-size: 0.76rem;
 }
 
 .toc-panel a:hover {

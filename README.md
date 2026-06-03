@@ -33,8 +33,10 @@ To reorder pages, rename the files. Numeric prefixes (`01-`, `02-`, ...) work we
 
 Get your own copy on GitHub, then clone it:
 
-- **Use this template** (recommended) — click **Use this template → Create a new repository** for a fresh, unlinked repo.
+- **Use this template** (recommended) — click the green button on the top right **Use this template → Create a new repository** for a fresh, unlinked repo.
 - **Fork** — for a copy that stays linked to the original.
+
+Then clone the repo locally:
 
 ```bash
 git clone git@github.com:<your-username>/<your-repo>.git
@@ -59,7 +61,7 @@ Write here.
 
 ## Publish to GitHub Pages
 
-You already have your repo on GitHub from [Get Started](#get-started). Publishing is a one-time switch — after it's wired up, every push to `main` redeploys the site automatically.
+You already have your repo on GitHub from [Get Started](#get-started). Publishing is a one-time switch. After it's wired up, every push to `main` redeploys the site automatically.
 
 ### 1. Push your notes
 
@@ -70,8 +72,6 @@ git push
 ```
 
 ### 2. Activate Pages
-
-This is the step most people miss.
 
 1. On GitHub, open **Settings → Pages**.
 2. Under **Build and deployment**, set **Source → GitHub Actions**.
@@ -92,19 +92,19 @@ The URL also appears in **Settings → Pages** and on the workflow's `deploy` jo
 
 ## Add AI Collaborators
 
-Because the source is plain Markdown, you can let AI coding agents read and write notes directly. They work in the repo on your machine, edit only `.md` files, and you commit and push to publish — no one touches HTML.
+Because the source is plain Markdown, you can let AI agents read and write notes directly. They work in the repo on your machine, edit only `.md` files, and you commit and push to publish — no one touches HTML.
 
-**The ground rules already live in the repo.** [`AGENTS.md`](AGENTS.md) at the root tells any agent what it may touch — edit Markdown in `notebooks/`, never the generated HTML or `_site/` — plus the note format and the build check to run before committing. [`CLAUDE.md`](CLAUDE.md) points to the same file, so Claude Code, Codex, Gemini CLI, and others all pick up the conventions automatically. Edit `AGENTS.md` when your own conventions change (a new folder, a different note format); since `CLAUDE.md` just references it, there's only one file to keep current.
+**The main rules already live in the repo.** [`AGENTS.md`](AGENTS.md) at the root tells any agent what it may touch, edit Markdown in `notebooks/`, never the generated HTML or `_site/` — plus the note format and the build check to run before committing. [`CLAUDE.md`](CLAUDE.md) and [`GEMINI.md`](GEMINI.md) just point to it, so Claude Code, Codex, and Gemini CLI all follow the same conventions automatically. Edit `AGENTS.md` when your own conventions change (a new folder, a different note format); the other two only reference it, so there's a single file to keep current.
 
-**Give an agent access to the folder.** Each of the major CLI agents runs inside a working directory and picks up the files there. Install the one you use, `cd` into this repo, and launch it:
+**Run an agent inside the repo.** `cd` into this folder and launch any of the supported CLI agents. Each automatically reads its context file — all of which point to `AGENTS.md` — so it follows the same rules from the start:
 
-| Tool | Install | Launch in the repo |
+| Agent | Reads | Launch |
 | --- | --- | --- |
-| **Claude Code** | `npm install -g @anthropic-ai/claude-code` | `claude` |
-| **Gemini CLI** | `npm install -g @google/gemini-cli` | `gemini` |
-| **Codex CLI** | `npm install -g @openai/codex` | `codex` |
+| Claude Code | `CLAUDE.md` | `claude` |
+| Gemini CLI | `GEMINI.md` | `gemini` |
+| Codex CLI | `AGENTS.md` | `codex` |
 
-Then prompt it normally — e.g. *"Add a notebook summarizing X"* or *"Tighten the headings in `03-another-example.md`."* The agent edits Markdown, you review the diff, commit, and push. Check each tool's docs for the current install command and how it asks for file-write permission.
+Then prompt it normally — e.g. *"Add a notebook summarizing X."* It edits Markdown; you review the diff, commit, and push.
 
 **Prefer pull requests?** Connect the GitHub repo through the tool's GitHub integration (the Claude or ChatGPT GitHub app) and have the agent open PRs against `main` instead of editing your local files. Merging a PR runs the same deploy workflow.
 

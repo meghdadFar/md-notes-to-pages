@@ -135,7 +135,7 @@ Rerun step 2 whenever you change a note. `_site/` is generated and Git-ignored, 
 
 ## Acknowledgments
 
-Built collaboratively with [Claude](https://claude.com/claude-code) — fitting, given the project is about making notes easy for humans and AI to co-edit.
+Built collaboratively with [Claude](https://claude.com/claude-code).
 
 ## License
 

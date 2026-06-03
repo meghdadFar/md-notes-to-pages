@@ -1,5 +1,9 @@
 # MD NOTES TO PAGES
 
+<p align="center">
+  <img src=".github/assets/hero.svg" alt="You and any AI edit Markdown notes; a build script renders them into an HTML site on every push." width="100%">
+</p>
+
 Write notes in Markdown, get a published HTML site. You only need to edit `.md`. Allow access to this repo to any AI. On every push to `main`, the notes are rendered and deployed to GitHub Pages automatically.
 
 I created this repo to keep Markdown as the source of truth and treat the website as a generated artifact. If you want the reasoning behind that, and take a look at the final results, see the published notebook [here](https://meghdadfar.github.io/md-notes-to-pages/index.html). 
@@ -150,6 +154,10 @@ Rerun step 2 whenever you change a note. `_site/` is generated and Git-ignored, 
 - Page shell — [`site/templates/page.html`](site/templates/page.html)
 - Visual design — [`site/assets/styles.css`](site/assets/styles.css)
 - Discovery and rendering — [`scripts/build_site.py`](scripts/build_site.py)
+
+## Acknowledgments
+
+Built collaboratively with [Claude](https://claude.com/claude-code) — fitting, given the project is about making notes easy for humans and AI to co-edit.
 
 ## License
 

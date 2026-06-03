@@ -12,7 +12,7 @@ Mostly that editing Markdown is faster, cheaper in tokens, and easier for both m
 
 ## How It Works
 
-When you create or edit a `*.md` file in `notebooks/` directory, a python script (`scripts/build_site.py`) finds them sorted by filename, and renders each one to HTML.
+On every push to `main`, a Python script (`scripts/build_site.py`) finds every `*.md` file in the `notebooks/` directory, sorted by filename, and renders each one to HTML.
 
 The first notebook is used as `index.html` representing the home of your notebook, while the rest keep their names representing the rest of the pages of your notebook.
 
@@ -31,48 +31,21 @@ To reorder pages, rename the files. Numeric prefixes (`01-`, `02-`, ...) work we
 
 ## Get Started
 
-First, get your own copy of this project on GitHub. Pick one of the two approaches below, then edit your notes.
+Get your own copy on GitHub, then clone it:
 
-### Approach 1 — Use this template (recommended)
+- **Use this template** (recommended) — click **Use this template → Create a new repository** for a fresh, unlinked repo.
+- **Fork** — for a copy that stays linked to the original.
 
-"Use this template" GitHub button that creates a **brand-new repository** from this one. Unlike a fork (below), the copy is fully yours with no link back to the original repo and a clean history.
+```bash
+git clone git@github.com:<your-username>/<your-repo>.git
+cd <your-repo>
+```
 
-1. On this repo's GitHub page, click the green **Use this template → Create a new repository**.
-2. Name it and create it. You now have your own repo on GitHub.
-3. Clone it to your machine:
-
-   ```bash
-   git clone git@github.com:<your-username>/<your-repo>.git
-   cd <your-repo>
-   ```
-
-### Approach 2 — Fork or clone
-
-A **fork** is a copy that stays linked to the original (GitHub shows "forked from …").
-
-1. Click **Fork** at the top right of this repo, then clone your fork:
-
-   ```bash
-   git clone git@github.com:<your-username>/<your-repo>.git
-   cd <your-repo>
-   ```
-
-2. Alternatively, if you want no link at all, clone this repo, create a new empty repo on GitHub, and point your copy at it:
-
-   ```bash
-   git clone git@github.com:meghdadFar/md-notes-to-pages.git my-notes
-   cd my-notes
-   git remote set-url origin git@github.com:<your-username>/<your-repo>.git
-   git push -u origin main
-   ```
-
-### Edit your notes
-
-Open `notebooks/` and replace the sample files with your own. Each `.md` file is one page — see [Add a Note](#add-a-note) for the format. When you're ready, [publish to GitHub Pages](#publish-to-github-pages).
+Then open `notebooks/`, replace the sample files with your own (see [Add a Note](#add-a-note)), and [publish to GitHub Pages](#publish-to-github-pages).
 
 ## Add a Note
 
-Drop a new Markdown file in `notebooks/` and rebuild — the sidebar and pages update on their own. Use a numeric prefix to control ordering.
+Add a new Markdown file to `notebooks/`, then commit and push — GitHub rebuilds the site and the sidebar and pages update on their own. Use a numeric prefix to control ordering. (To check it before publishing, use the optional [local preview](#preview-locally-optional).)
 
 ```markdown
 # My topic

@@ -1,4 +1,4 @@
-# MD NOTES TO PAGES
+# MARKDOWN NOTES TO PAGES
 
 Write notes in Markdown, get a published HTML site. You only need to edit `.md`. Allow access to this repo to any AI. On every push to `main`, the notes are rendered and deployed to GitHub Pages automatically.
 
@@ -6,11 +6,13 @@ I created this repo to keep Markdown as the source of truth and treat the websit
 
 ## How It Works
 
-`scripts/build_site.py` finds every `*.md` file in `notebooks/`, sorted by filename, and renders each one to HTML.
+When you create or edit a `*.md` file in `notebooks/` directory, a python script (`scripts/build_site.py`) finds them sorted by filename, and renders each one to HTML.
 
-- The first notebook becomes `index.html`. The rest keep their name (`02-your-first-note.md` -> `02-your-first-note.html`).
+The first notebook is used as `index.html` representing the home of your notebook, while the rest keep their names representing the rest of the pages of your notebook.
+
+In the Markdown:
+
 - The first `# Heading` becomes the page title and sidebar label.
-- The first line after it becomes the page description.
 - Each `## Heading` becomes a table-of-contents entry.
 
 To reorder pages, rename the files. Numeric prefixes (`01-`, `02-`, ...) work well.
@@ -149,4 +151,4 @@ Rerun step 2 whenever you change a note. `_site/` is generated and Git-ignored, 
 
 ## License
 
-[MIT](LICENSE) — use it, fork it, make it yours.
+[MIT](LICENSE)

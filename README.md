@@ -1,8 +1,10 @@
-# MARKDOWN NOTES TO PAGES
+# MD NOTES TO PAGES
 
 Write notes in Markdown, get a published HTML site. You only need to edit `.md`. Allow access to this repo to any AI. On every push to `main`, the notes are rendered and deployed to GitHub Pages automatically.
 
-I created this repo to keep Markdown as the source of truth and treat the website as a generated artifact. If you want the reasoning behind that, the first notebook ([`notebooks/01-why-markdown.md`](notebooks/01-why-markdown.md)) makes the case. Mostly that editing Markdown is faster, cheaper in tokens, and easier for both me and any AI working in the repo. It became an optimized setup to let multiple AI work on notes collaboratively with me.
+I created this repo to keep Markdown as the source of truth and treat the website as a generated artifact. If you want the reasoning behind that, and take a look at the final results, see the published notebook [here](https://meghdadfar.github.io/md-notes-to-pages/index.html). 
+
+Mostly that editing Markdown is faster, cheaper in tokens, and easier for both me and any AI working in the repo. It became an optimized setup to let multiple AI work on notes collaboratively with me.
 
 ## How It Works
 

@@ -1,18 +1,18 @@
 # Why Markdown, Not HTML
 
-Markdown is a great format which is both readable for LLMs and for human. But obviously it's not as easy to read for human, as rendered HTML, especially for longer content, illustrations, images, and content separations via tabs or other separators. On the other hand, it's much easier to edit, move around and maintain. It's much more minimal compared to HTML, which is heavily dependent on HTML tags. 
+Markdown is a great format which is both readable for LLMs and for humans. But obviously it's not as easy to read for humans as rendered HTML, especially for longer content, illustrations, images, and content separations via tabs or other separators. On the other hand, it's much easier to edit, move around and maintain. It's much more minimal compared to HTML, which is heavily dependent on HTML tags.
 
-To have the best of both worlds, I used the following structure which treats the Markdown as a source of truth, but then automate the the rendering and deploying of the content into a nice HTML website, at push trigger. Here is why i think that small decision pays off, especially when you write with AI.
+To have the best of both worlds, I used the following structure which treats the Markdown as a source of truth, but then automate the rendering and deploying of the content into a nice HTML website, at push trigger. Here is why I think that small decision pays off, especially when you write with AI.
 
 ## The Idea
 
-The initial idea of moving away from Markdown and using HTML comes from @trq212. I took it further: keep `.md` as the source in a GitHub repo and auto-generate HTML and publish on every push to `main`.
+The initial idea of moving away from Markdown and using HTML comes from [Tariq](https://x.com/trq212) at Anthropic. I took it further: keep `.md` as the source in a GitHub repo and auto-generate HTML and publish on every push to `main`.
 
 A small Python render script (a Markdown library + an HTML template + CSS) turns `notebooks/*.md` into `_site/`, and a GitHub Actions workflow deploys it to GitHub Pages on every commit.
 
 You or any AI with access to this repo only ever edit Markdown. But when you commit your changes, the edits will be published into a nicely readable HTML.
 
-## 2x–4x Less Tokens and A Lot Faster
+## 2x–4x Fewer Tokens and a Lot Faster
 
 Editing HTML with AI was becoming difficult, time-consuming, and token-heavy. The same edits on `.md` are faster and far more efficient.
 
@@ -38,7 +38,7 @@ This is fine when you generate a little, and do not expect many edits. But when 
 
 ## Manual Edits Stay Easy
 
-I frequently edit notes by hand, moving paragraphs around and reordering headings. That is trivial in Markdown and painful maybe near impossible in HTML. The smallest change usually means prompting a model to do it for you. Something that should be a quick manual fix turns into a prompting spree.
+I frequently edit notes by hand, moving paragraphs around and reordering headings. That is trivial in Markdown and painful, maybe near impossible in HTML. The smallest change usually means prompting a model to do it for you. Something that should be a quick manual fix turns into a prompting spree.
 
 ## Any Contributions Become Easier
 

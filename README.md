@@ -31,56 +31,69 @@ To reorder pages, rename the files. Numeric prefixes (`01-`, `02-`, ...) work we
 
 ## Get Started
 
-1. **Make it yours.** On GitHub, click **Use this template → Create a new repository** (or fork it), then clone your copy:
+First, get your own copy of this project on GitHub. Pick one of the two approaches below, then edit your notes.
+
+### Approach 1 — Use this template (recommended)
+
+"Use this template" GitHub button that creates a **brand-new repository** from this one. Unlike a fork (below), the copy is fully yours with no link back to the original repo and a clean history.
+
+1. On this repo's GitHub page, click the green **Use this template → Create a new repository**.
+2. Name it and create it. You now have your own repo on GitHub.
+3. Clone it to your machine:
 
    ```bash
    git clone git@github.com:<your-username>/<your-repo>.git
    cd <your-repo>
    ```
 
-   You can also just download the folder and run `git init` later.
+### Approach 2 — Fork or clone
 
-2. **Edit the notes.** Open `notebooks/` and replace the sample files with your own. Each `.md` file is one page — see [Add a Note](#add-a-note) for the format.
+A **fork** is a copy that stays linked to the original (GitHub shows "forked from …").
 
-3. **Publish.** Push to GitHub and turn on Pages — see [Publish to GitHub Pages](#publish-to-github-pages).
+1. Click **Fork** at the top right of this repo, then clone your fork:
+
+   ```bash
+   git clone git@github.com:<your-username>/<your-repo>.git
+   cd <your-repo>
+   ```
+
+2. Alternatively, if you want no link at all, clone this repo, create a new empty repo on GitHub, and point your copy at it:
+
+   ```bash
+   git clone git@github.com:meghdadFar/md-notes-to-pages.git my-notes
+   cd my-notes
+   git remote set-url origin git@github.com:<your-username>/<your-repo>.git
+   git push -u origin main
+   ```
+
+### Edit your notes
+
+Open `notebooks/` and replace the sample files with your own. Each `.md` file is one page — see [Add a Note](#add-a-note) for the format. When you're ready, [publish to GitHub Pages](#publish-to-github-pages).
 
 ## Add a Note
 
 Drop a new Markdown file in `notebooks/` and rebuild — the sidebar and pages update on their own. Use a numeric prefix to control ordering.
 
 ```markdown
-# My Topic
+# My topic
 
 A one-sentence description for the page.
 
-## First Section
+## First section
 
 Write here.
 ```
 
 ## Publish to GitHub Pages
 
-Publishing is a one-time setup. After it's wired up, every push to `main` redeploys the site automatically.
+You already have your repo on GitHub from [Get Started](#get-started). Publishing is a one-time switch — after it's wired up, every push to `main` redeploys the site automatically.
 
-### 1. Push the repo to GitHub
-
-If you created your repo from the template (see [Get Started](#get-started)), the remote is already set — just commit and push:
+### 1. Push your notes
 
 ```bash
 git add .
 git commit -m "My notes"
 git push
-```
-
-Starting from a plain folder instead? Initialize and connect it to a new GitHub repo first:
-
-```bash
-git init
-git add .
-git commit -m "Initial notebooks"
-git branch -M main
-git remote add origin git@github.com:<your-username>/<your-repo>.git
-git push -u origin main
 ```
 
 ### 2. Activate Pages
@@ -108,24 +121,15 @@ The URL also appears in **Settings → Pages** and on the workflow's `deploy` jo
 
 Because the source is plain Markdown, you can let AI coding agents read and write notes directly. They work in the repo on your machine, edit only `.md` files, and you commit and push to publish — no one touches HTML.
 
-**Set the ground rules once.** Add a short `AGENTS.md` (and/or `CLAUDE.md`) at the repo root so every agent follows the same conventions:
-
-```markdown
-# Working in this repo
-
-- Only edit Markdown files under `notebooks/`. Never edit HTML or `_site/`.
-- Start each note with a single `# Title`, then a one-line description, then `##` sections.
-- After changes, run `.venv/bin/python scripts/build_site.py` to verify the build succeeds.
-- Commit one note per change with a clear message.
-```
+**The ground rules already live in the repo.** [`AGENTS.md`](AGENTS.md) at the root tells any agent what it may touch — edit Markdown in `notebooks/`, never the generated HTML or `_site/` — plus the note format and the build check to run before committing. [`CLAUDE.md`](CLAUDE.md) points to the same file, so Claude Code, Codex, Gemini CLI, and others all pick up the conventions automatically. Edit `AGENTS.md` when your own conventions change (a new folder, a different note format); since `CLAUDE.md` just references it, there's only one file to keep current.
 
 **Give an agent access to the folder.** Each of the major CLI agents runs inside a working directory and picks up the files there. Install the one you use, `cd` into this repo, and launch it:
 
 | Tool | Install | Launch in the repo |
 | --- | --- | --- |
-| **Claude** (Claude Code) | `npm install -g @anthropic-ai/claude-code` | `claude` |
-| **Gemini** (Gemini CLI) | `npm install -g @google/gemini-cli` | `gemini` |
-| **ChatGPT** (Codex CLI) | `npm install -g @openai/codex` | `codex` |
+| **Claude Code** | `npm install -g @anthropic-ai/claude-code` | `claude` |
+| **Gemini CLI** | `npm install -g @google/gemini-cli` | `gemini` |
+| **Codex CLI** | `npm install -g @openai/codex` | `codex` |
 
 Then prompt it normally — e.g. *"Add a notebook summarizing X"* or *"Tighten the headings in `03-another-example.md`."* The agent edits Markdown, you review the diff, commit, and push. Check each tool's docs for the current install command and how it asks for file-write permission.
 

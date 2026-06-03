@@ -131,6 +131,7 @@ Rerun step 2 whenever you change a note. `_site/` is generated and Git-ignored, 
 - Page shell — [`site/templates/page.html`](site/templates/page.html)
 - Visual design — [`site/assets/styles.css`](site/assets/styles.css)
 - Discovery and rendering — [`scripts/build_site.py`](scripts/build_site.py)
+- Build and deploy workflow — [`.github/workflows/pages.yml`](.github/workflows/pages.yml)
 
 ## Acknowledgments
 

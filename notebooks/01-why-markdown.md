@@ -4,6 +4,8 @@ Markdown is a great format which is both readable for LLMs and for humans. But o
 
 To have the best of both worlds, I used the following structure which treats the Markdown as a source of truth, but then automate the rendering and deploying of the content into a nice HTML website, at push trigger. Here is why I think that small decision pays off, especially when you write with AI.
 
+> The template that builds this site lives at [github.com/meghdadFar/md-notes-to-pages](https://github.com/meghdadFar/md-notes-to-pages) — fork it or use it as a template to start your own.
+
 ## The Idea
 
 The initial idea of moving away from Markdown and using HTML comes from [Tariq](https://x.com/trq212) at Anthropic. I took it further: keep `.md` as the source in a GitHub repo and auto-generate HTML and publish on every push to `main`.
